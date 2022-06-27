@@ -1,0 +1,65 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header {
+  background-color: black;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px;
+  width: 40%;
+  margin: 20px auto;
+  font-size: 32px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  border: 1px solid black;
+  margin: auto;
+  padding: 10px;
+  gap: 10px;
+}
+
+.container .col-1 {
+  width: 48%;
+  padding: 10px;
+}
+
+.container .col-2 {
+  width: 48%;
+  padding: 10px;
+}
+
+.api-func .top {
+  background-color: black;
+  color: whitesmoke;
+  width: 80px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.api-func .func {
+  width: 99.7%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.api-func .func input[type="text"] {
+  font-size: 26px;
+  padding: 2px;
+}
+
+.api-func .func textarea {
+  width: 100%;
+  font-size: 26px;
+}
+/*# sourceMappingURL=newstyle.css.map */

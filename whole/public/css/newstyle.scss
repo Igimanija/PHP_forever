@@ -1,0 +1,61 @@
+$bg_color: black;
+$fn_color: whitesmoke; 
+@mixin invert() {
+    background-color: $bg_color;
+    color: $fn_color;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header{
+    @include invert;
+    text-align: center;
+    padding: 10px;
+    width: 40%;
+    margin: 20px auto;
+    font-size: 32px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    border: 1px solid black;
+    margin: auto;
+    padding: 10px;
+    gap: 10px;
+    .col-1{
+        width: 48%;
+        padding: 10px;
+    }
+    .col-2{
+        width: 48%;
+        padding: 10px;
+    }
+}
+
+.api-func{
+    .top{
+        @include invert;
+        width: 80px;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+    }
+    .func{
+        width: 99.7%;
+        height: 100%;
+        padding: 10px;
+        border: 1px solid black;
+        input[type="text"]{
+            font-size: 26px;
+            padding: 2px;
+        }
+        textarea{
+            width: 100%;
+            font-size: 26px;
+        }
+    }
+} 

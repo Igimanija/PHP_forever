@@ -1,0 +1,30 @@
+@mixin myborder($border_size: 15px) {
+    border: 1px solid #9bb;
+    background-color: #9b9;
+    margin: 5px;
+    padding: 15px;
+    border-radius: $border_size;
+    color: black;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+$n_container: 3;
+// there is also each and while loop
+@for $i from 1 through $n_container {
+    #container#{$i}{
+        @include myborder($border_size:30px);
+        @if $i == 1 {
+        padding: 30px;
+        }     
+    }
+}
