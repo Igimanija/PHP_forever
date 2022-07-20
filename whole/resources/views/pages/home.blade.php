@@ -5,76 +5,53 @@
     <h1>Welcome to my first Laravel Project!</h1>
     </div>
 @endsection
-@section('api_add')
-    <div class="api-func">
-        <div class="top" onclick="func_add();">Add</div>
-        <div class="func">
-            <label>
-                title:
-                <input type="text" id="add_title">
-            </label>
-            <br>
-            <label>
-                priority(1-3):
-                <input type="text" id="add_priority">
-            </label>
-            <br>
-            <label>
-                done(1/0): 
-                <input type="text" id="add_done">
-            </label>
-        </div>
-    </div>
-@endsection
-@section('api_index')
-    <div class="api-func">
-        <div class="top" onclick="func_index();">Find one</div>
-        <div class="func">
-            <label>
-                id of the specific item:
-                <input type="text" id="item_id">
-            </label>
-            <br>
-            <label>
-                Info:
-                <textarea rows="10" id="info"></textarea>
-            </label>
-        </div>
-    </div>
-@endsection
-@section('api_update')
-    <div class="api-func">
-        <div class="top" onclick="func_update();">Update</div>
-        <div class="func">
-            <label>
-                item to be updated:
-                <input type="text" id="item_id_u">
-            </label>
-            <br>
-            <label>
-                done(0/1):
-                <input type="text" id="done">
-            </label>
-        </div>
-    </div>
-@endsection
-@section('api_display_all')
-    <div class="api-func">
-        <div class="top" onclick="func_display_all();">Display All</div>
-        <div class="func">
-            <textarea rows="10" id="response"></textarea>
-        </div>
-    </div>
-@endsection
-@section('api_destroy')
-    <div class="api-func">
-        <div class="top" onclick="func_destroy();">Delete</div>
-        <div class="func">
-            <label>
-                item to be deleted:
-                <input type="text" id="item_id_d">
-            </label>
-            <br>
-        </div>
-    </div>
+@section('body')
+<section>
+  <p>Add a new one: </p>
+  <a href="/adding">
+    <button>Add</button>  
+  </a>
+</section>
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Priority</th>
+      <th>Done</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Func</th>
+    </tr>
+
+    @php $json = App\Http\Controllers\TodoController:: index();
+         $json =  substr($json, stripos($json,'{'));
+         $obj = json_decode($json);
+         $arr = $obj->data;
+         foreach ($arr as $item) {
+          echo" 
+            <tr>
+              <td>$item->id</td>
+              <td>$item->title</td>
+              <td>$item->priority</td>
+              <td>$item->done</td>
+              <td>$item->created_at</td>
+              <td>$item->updated_at</td>
+              <td>
+              <form method='get'>
+                <button onclick='del();' type='submit' name='id' value ='$item->id'>Delete</button>
+              </form>  
+              </td>
+            </tr>";
+         }
+    @endphp
+  </table>
+  <script>
+    function del(){
+      @php 
+      if(!empty($_GET['id'])){
+        App\Http\Controllers\TodoController:: destroy($_GET['id']);
+      }
+      @endphp
+    }
+  </script>
 @endsection

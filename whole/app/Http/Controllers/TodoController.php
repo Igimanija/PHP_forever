@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    function store(Request $request)
+    public static function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -27,7 +27,7 @@ class TodoController extends Controller
         ], 210);
     }
 
-    public function index(Request $request)
+    public static function index()
     {
         $todos = Todo::all();
         return response()->json([
@@ -37,7 +37,7 @@ class TodoController extends Controller
         ]);
     }
 
-    public function show(Request $request, $id)
+    public static function show($id)
     {
         $todo = Todo::find($id);
         return response()->json([
@@ -47,7 +47,7 @@ class TodoController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public static function update(Request $request, $id)
     {
         $data = $request->validate([
             'done' => 'required|boolean'
@@ -70,7 +70,7 @@ class TodoController extends Controller
         ]);
     }
 
-    public function destroy(Request $request, $id)
+    public static function destroy($id)
     {
         $todo = Todo::find($id);
         if (!$todo) {

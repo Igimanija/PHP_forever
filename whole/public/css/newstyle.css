@@ -14,52 +14,44 @@
   font-size: 32px;
 }
 
-.container {
+section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 70%;
-  border: 1px solid black;
-  margin: auto;
-  padding: 10px;
-  gap: 10px;
+  gap: 20px;
+  font-size: 20px;
+  width: 80%;
+  margin: 20px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.container .col-1 {
-  width: 48%;
+section button {
   padding: 10px;
+  font-size: 20px;
 }
 
-.container .col-2 {
-  width: 48%;
-  padding: 10px;
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
 }
 
-.api-func .top {
+table td, table th {
+  padding: 10px;
+  border: 1px solid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+table th {
   background-color: black;
   color: whitesmoke;
-  width: 80px;
+}
+
+table button {
   padding: 10px;
-  border-radius: 10px 10px 0 0;
-}
-
-.api-func .func {
-  width: 99.7%;
-  height: 100%;
-  padding: 10px;
-  border: 1px solid black;
-}
-
-.api-func .func input[type="text"] {
-  font-size: 26px;
-  padding: 2px;
-}
-
-.api-func .func textarea {
-  width: 100%;
-  font-size: 26px;
 }
 /*# sourceMappingURL=newstyle.css.map */

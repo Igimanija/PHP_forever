@@ -12,18 +12,7 @@
 
 <body>
     @yield('header')
-
-    <div class="container">
-        <div class="col-1">
-            @yield('api_add')
-            @yield('api_index')
-            @yield('api_update')
-        </div>
-        <div class="col-2">
-            @yield('api_display_all')
-            @yield('api_destroy')
-        </div>        
-    </div>
+    @yield('body')
 </body>
 
 </html>
